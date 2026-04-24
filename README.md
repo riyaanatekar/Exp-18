@@ -1,196 +1,64 @@
-Aim
-To study and implement Clustering techniques in Machine Learning using Python and understand how unlabeled data can be grouped into meaningful clusters.
-The objective of this experiment is to perform clustering using Python libraries, visualize grouped data, and learn functions used for data preprocessing, model training, prediction, and evaluation.
+Experiment 18
+Aim:
+To study statistical and specialized data visualization techniques using Python libraries.
 
-Theory
-Introduction to Clustering
-
-Clustering is an unsupervised machine learning technique used to group similar data points into clusters without predefined labels.
-Data points in the same cluster are more similar to each other than to those in other clusters.
-Unlike classification, clustering works on unlabeled data.
-
-Examples of Clustering:
-Customer segmentation
-Market basket analysis
-Image segmentation
-Document grouping
-Social network analysis
-Disease pattern detection
-Libraries Used in Experiment
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-Theory of Libraries:
-pandas
-Used for loading and handling datasets.
-
-numpy
-Used for numerical calculations and arrays.
-
-matplotlib.pyplot
-Used for plotting graphs.
-
-seaborn
-Used for attractive statistical visualizations.
-
-Functions Used in Detail
-1. Reading Dataset
-df = pd.read_csv("data.csv")
-Function Used: pd.read_csv()
-Loads CSV file into DataFrame format.
-
-2. Display Dataset
-df.head()
-Function Used: head()
-Displays first five rows of dataset.
-
-3. Dataset Shape
-df.shape
-Function Used: shape
-
-Returns:
-(rows, columns)
-Used to know size of dataset.
-
-4. Dataset Information
-df.info()
-Function Used: info()
-
-Displays:
-Column names
-Data types
-Non-null values
-Memory usage
-5. Statistical Summary
-df.describe()
-Function Used: describe()
-
-Shows:
-Mean
-Count
-Std deviation
-Minimum
-Maximum
-Quartiles
-6. Selecting Features
-X = df.iloc[:, :]
-Functions Used:
-iloc[]
-
-Selects rows and columns by integer indexing.
-
-:Means all rows / all columns.
-
-Clustering Algorithm Used
-K-Means Clustering
-from sklearn.cluster import KMeans
-model = KMeans(n_clusters=3, random_state=42)
-model.fit(X)
-Theory of K-Means
-
-K-Means divides dataset into K clusters.
-
-Steps:
-Choose number of clusters K
-Select centroids
-Assign nearest data points
-Update centroid mean
-Repeat until stable
-Functions Used:
-KMeans()
-
-Creates K-Means clustering model.
-
-Parameters:
-n_clusters=3 → Number of clusters
-random_state=42 → Reproducible result
-fit(X)
-Trains model using dataset.
-
-Predict Cluster Labels
-labels = model.fit_predict(X)
-Function Used:
-fit_predict()
-Performs training and returns cluster labels.
-
-Example Output:
-[0,1,2,1,0,2...]
-Cluster Centers
-model.cluster_centers_
-Function Used:
-cluster_centers_
-Returns centroid coordinates of clusters.
-
-Inertia Value
-model.inertia_
-Function Used:
-inertia_
-
-Measures within-cluster sum of squares.
-Lower value = Better compact clusters.
-
-Elbow Method
-wcss = []
-for i in range(1,11):
-    model = KMeans(n_clusters=i)
-    model.fit(X)
-    wcss.append(model.inertia_)
 Theory:
-Elbow method is used to find best value of K.
+Data Visualization: It is the graphical representation of data to understand patterns, trends, and relationships easily.
 
-WCSS = Within Cluster Sum of Squares
-When graph forms elbow shape, that K is selected.
+Matplotlib: A Python library used for creating static, animated, and interactive visualizations.
 
-Plotting Elbow Graph
-plt.plot(range(1,11), wcss)
-plt.xlabel("Clusters")
-plt.ylabel("WCSS")
-plt.title("Elbow Method")
-plt.show()
+Seaborn: Built on Matplotlib, it provides better aesthetics and advanced statistical plots.
 
-Functions Used:
-plt.plot()
-Draws line graph.
+Area Plot: It shows cumulative values over a range and is useful for visualizing trends with filled areas.
 
-xlabel()
-Sets X-axis label.
+fill_between(): A Matplotlib function used to fill the area between curves or between a curve and axis.
 
-ylabel()
-Sets Y-axis label.
+Multiple Area Plot: Used to compare multiple datasets by plotting filled areas in the same graph.
 
-title()
-Sets graph title.
+sns.set_style(): Used to apply different visual themes like grid or dark background.
 
-show()
-Displays graph.
+Pie Chart: Displays data as slices of a circle representing percentage contribution.
 
-Scatter Plot for Clusters
-plt.scatter(X[:,0], X[:,1], c=labels)
-plt.show()
-Function Used:
-scatter()
+autopct: A parameter in pie chart used to display percentage values on slices.
 
-Displays clustered data points.
-Other Clustering Algorithms (May Be Included)
-Hierarchical Clustering
-from sklearn.cluster import AgglomerativeClustering
-Forms clusters in tree structure.
+Donut Chart: A variation of pie chart with a hollow center for better readability.
 
-DBSCAN
-from sklearn.cluster import DBSCAN
-Density-based clustering algorithm.
+plt.Circle(): Used to draw a circle (used here to create donut hole).
 
-Applications of Clustering
-Customer segmentation
-Recommendation systems
-Fraud detection
-Social media grouping
-Image compression
-Pattern recognition
+gcf() & gca(): Get current figure and axes for modifying plots.
 
-Conclusion
-Thus, the experiment on Clustering using Python was successfully performed. The dataset was loaded and explored using Pandas functions.
-K-Means clustering algorithm was implemented to group similar data points into clusters. Functions such as read_csv(), head(), info(), describe(), iloc[], KMeans(), fit(), fit_predict(), cluster_centers_(), inertia_(), plot(), scatter(), show() were studied in detail
-. This experiment helped in understanding how unsupervised learning techniques organize unlabeled data efficiently.
+Boxplot: Used to visualize distribution of data and detect outliers using quartiles.
+
+Outliers: Extreme values that lie far from other observations in the dataset.
+
+Heatmap: Displays correlation matrix using colors to represent strength of relationship.
+
+corr(): Calculates correlation between numerical variables.
+
+annot=True: Displays numerical values inside heatmap cells.
+
+cmap: Defines color scheme of the heatmap.
+
+Bubble Plot: A scatter plot where size of marker represents a third variable.
+
+plt.scatter(): Used to plot points on graph with x and y values.
+
+size (s parameter): Controls size of bubbles in scatter plot.
+
+hue: Used in Seaborn to represent additional variable using color.
+
+palette: Defines color range in Seaborn plots.
+
+sizes: Controls minimum and maximum size of bubbles.
+
+Histogram: Displays frequency distribution of continuous data using bins.
+
+bins: Defines number of intervals in histogram.
+
+edgecolor: Used to highlight boundaries of histogram bars.
+
+Colorbar: Used to show scale of colors in plots.
+
+Conclusion:
+This experiment helped in understanding various statistical and advanced visualization techniques. It improved the ability to represent data using different graphs like histogram, boxplot, and heatmap. It also provided knowledge about identifying patterns, correlations, and outliers effectively.
+
